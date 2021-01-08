@@ -13,12 +13,12 @@
       if (src) {
         const video = document.getElementById("video");
 
-        if (Hls.isSupported()) {
+        if (video.canPlayType("application/vnd.apple.mpegurl")) {
+          video.src = src;
+        } else if (Hls.isSupported()) {
           const hls = new Hls();
           hls.loadSource(src);
           hls.attachMedia(video);
-        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-          video.src = src;
         }
       }
     </script>
