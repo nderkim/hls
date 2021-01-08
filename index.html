@@ -1,6 +1,11 @@
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<head>
+  <meta name="referrer" content="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
 
-<video id="video" autoplay muted></video>
+<body>
+  <video id="video" autoplay muted></video>
+</body>
 
 <script>
   const video = document.getElementById("video");
@@ -11,7 +16,7 @@
     video.src = url;
   } else if (Hls.isSupported()) {
     const hls = new Hls();
-
+    
     // hls.loadSource(url);
     // hls.attachMedia(video);
 
