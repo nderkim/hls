@@ -1,0 +1,17 @@
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<video id="video" autoplay muted></video>
+
+<script>
+  const video = document.getElementById("video");
+
+  const url = new URL(document.location).searchParams.get("url");
+
+  if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = url;
+  } else if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
+  }
+</script>
